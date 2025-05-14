@@ -1,36 +1,33 @@
 <script setup lang="ts">
+import actions from '~/actions'
+import type { LoginForm } from '~/actions/auth/login'
+
 definePageMeta({
   layout: 'guest',
   middleware: ['guest']
 })
 
-const form = ref({
+const authStore = useAuthStore()
+
+const form = ref<LoginForm>({
   email: 'test@example.com',
   password: 'password',
 })
 
 const handleLogin = async () => {
- await useFetch('http://localhost:8000/sanctum/csrf-cookie', {
-    credentials: 'include',
-  })
-  
-  const cookie = useCookie('XSRF-TOKEN')
-  
-  await useFetch('http://localhost:8000/login', {
-    method: 'POST',
-    body: form.value,
-    credentials: 'include',
-    watch: false,
-    headers: {
-      'X-XSRF-TOKEN': cookie.value ?? '',
-    }
-  })
+  try {
+    await actions.auth.login(form.value)
+   
+    await navigateTo('/')
+  } catch (error) {
+    console.error('Erro ao fazer login:', error)
+   
+  }
+}
 
-  const user = useFetch('http://localhost:8000/api/user', {
-    credentials: 'include',
-  })
+const getUser = async () => {
+  await useApi('/sanctum/csrf-cookie')
 
-  console.log(user)
 }
 </script>
 
