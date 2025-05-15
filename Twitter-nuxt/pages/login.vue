@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import actions from '~/actions'
 import type { LoginForm } from '~/actions/auth/login'
+import AuthRepository from '~/repositories/AuthRepository'
 
 definePageMeta({
   layout: 'guest',
   middleware: ['guest']
 })
 
-const authStore = useAuthStore()
 
 const form = ref<LoginForm>({
   email: 'test@example.com',
@@ -15,7 +15,9 @@ const form = ref<LoginForm>({
 })
 
 const handleLogin = async () => {
+  
   try {
+    // AuthRepository.login(form.value)
     await actions.auth.login(form.value)
    
     await navigateTo('/')
@@ -25,10 +27,6 @@ const handleLogin = async () => {
   }
 }
 
-const getUser = async () => {
-  await useApi('/sanctum/csrf-cookie')
-
-}
 </script>
 
 <template>

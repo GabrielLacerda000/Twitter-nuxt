@@ -7,20 +7,10 @@ interface AuthState {
 
 export const useAuthStore = defineStore('auth', () => {
 
-    const user = ref<User | null>(null)
-    const isLoggedIn = computed(() => !!user.value)
+  const user = ref<User | null>(null)
+  const isLoggedIn = computed(() => !!user.value)
 
-    const router = useRouter()
-
-  async function login(form: any) {
-    await useApi('/sanctum/csrf-cookie')
-
-    const response = await useApi('/login', { method: 'POST', body: form })
-
-   await fetchUser()
-
-   return response
-  }
+  const setUser = (newUser: User | null) =>  user.value = newUser
 
   async function logout() {
     await useApi('/sanctum/csrf-cookie')
@@ -29,17 +19,12 @@ export const useAuthStore = defineStore('auth', () => {
 
     user.value = null
 
-    router.push('/login')
   }
 
-  async function fetchUser() {
-    const response = await useApi('/api/user')
-    user.value = response.data.value as User
-  }
+
   return {
-    login,
     logout,
-    fetchUser,
+    setUser,
     user,
     isLoggedIn,
   }

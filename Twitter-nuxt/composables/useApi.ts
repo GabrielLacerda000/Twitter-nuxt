@@ -1,11 +1,12 @@
 import type { UseFetchOptions } from "#app";
 
-export function useApi<T>(path: string, options: UseFetchOptions<T> = {}) {
+export function useBaseApi<T>(path: string, options: UseFetchOptions<T> = {}) {
     let headers: any = {}
 
     const token = useCookie('XSRF-TOKEN')
-    if (token) {
-        headers['X-XSRF-TOKEN'] = token.value as string
+
+    if (!token.value) {
+       headers['X-XSRF-TOKEN'] = useCookie('XSRF-TOKEN').value
     }
 
     return useFetch('http://localhost:8000' + path, {
@@ -17,6 +18,18 @@ export function useApi<T>(path: string, options: UseFetchOptions<T> = {}) {
             ...options.headers
         }
       })
+}
+
+
+
+export async function useApi<T>(path: string, options: UseFetchOptions<T> = {}) {
+    const token = useCookie('XSRF-TOKEN')
+
+    if (!token.value) {
+        await useBaseApi('/sanctum/csrf-cookie')
+    }
+
+    return useBaseApi(path, options)
 }
 
 export function useGet<T>(path: string, options: UseFetchOptions<T> = {}) {
