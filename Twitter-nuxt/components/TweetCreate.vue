@@ -2,16 +2,8 @@
 import { ref } from 'vue'
 
 const tweet = ref('')
-const maxLength = 280
+const editing = ref(false)
 
-const handleInput = (e: Event) => {
-  const target = e.target as HTMLTextAreaElement
-  if (target.value.length > maxLength) {
-    tweet.value = target.value.slice(0, maxLength)
-  } else {
-    tweet.value = target.value
-  }
-}
 
 const submitTweet = () => {
   // Lógica para postar tweet
@@ -23,20 +15,18 @@ const submitTweet = () => {
     <!-- Avatar -->
     <div class="mr-3 flex-shrink-0">
       <img src="/avatar.png" alt="Avatar" class="w-10 h-10 rounded-full object-cover" />
-      <!-- <Icon name="uil:user" style="color: white" /> -->
     </div>
     
     <div class="flex-1 flex flex-col">
       <textarea
         v-model="tweet"
-        @input="handleInput"
-        :maxlength="maxLength"
+        @keydown="editing = true"
         rows="2"
-        placeholder="O que está acontecendo?"
-        class="bg-transparent resize-none text-lg text-white placeholder-neutral-400 outline-none w-full min-h-[48px]"
-        aria-label="O que está acontecendo?"
+        cols="50"
+        placeholder="What's happening?"
+        class="bg-transparent text-lg text-white text-xl placeholder-neutral-500 outline-none resize-none w-full"
       />
-      <div class="flex items-center justify-between mt-3">
+      <div class="flex items-center justify-between mt-3" :class="{'border-t-3 border-lines pt-4' : editing}">
         <div class="flex gap-2 text-twitter-blue">
             <Icon name="ic:outline-image" style="color: white" />
             <Icon name="ic:outline-gif-box" heigth="50"  style="color: white" />
@@ -44,15 +34,8 @@ const submitTweet = () => {
             <Icon name="ic:outline-emoji-emotions" style="color: white" />
             <Icon name="ic:baseline-edit-calendar" style="color: white" />
             <Icon name="ic:baseline-lcoation-on" style="color: white" />
-            
         </div>
-        <button
-          type="submit"
-          :disabled="!tweet.trim()"
-          class="ml-2 px-5 py-1.5 rounded-full bg-twitter-blue text-white font-bold shadow-md disabled:opacity-50 disabled:cursor-not-allowed transition"
-        >
-          Postar
-        </button>
+        <ButtonsBtn text="Post"/>
       </div>
     </div>
   </form>
