@@ -18,7 +18,7 @@ const AuthRepository = {
     },
 
     async fetchUser () {
-        const user = await useGet('/user')
+        const user = await useGet('/api/user')
         useAuthStore().setUser(user.data.value as User)
     }
 }

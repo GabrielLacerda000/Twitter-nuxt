@@ -27,24 +27,17 @@ const tweetando = async () => {
 </script>
 
 <template>
-  <div>
-    <form @submit.prevent="tweetando">
-      <div class="mb-4">
-        <label  for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" id="email" v-model="form.content" class="mt-1 p-2 border rounded w-full text-black">
-      </div>
-
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tweet</button>
-    </form>
-
-    <div>
+  <div class="flex flex-col items-center w-full">
+    <div class="w-full max-w-2xl px-4">
+      <TweetCreate />
+    </div>
+    <div class="w-full max-w-2xl px-4">
       <ul>
         <li v-for="tweet in tweets" :key="tweet.id">
           {{ tweet.content }}
         </li>
       </ul>
     </div>
-
-    <button @click="logout" class="p-2 bg-cyan-500 rounded-md hover:bg-cyan-300 hover:text-black transition-all duration-300">Logout</button>
+    <button @click="logout" class="p-2 bg-cyan-500 rounded-md hover:bg-cyan-300 hover:text-black transition-all duration-300 mt-4">Logout</button>
   </div>
 </template>

@@ -1,4 +1,4 @@
-import { fetchUser } from "./fetchUser"
+import actions from ".."
 
 export type LoginForm = {
     email: string
@@ -7,9 +7,7 @@ export type LoginForm = {
 
 export default async function login(form: LoginForm) {
 
-    const response = await usePost('/login', { body: form })
+    await usePost('/login', { body: form })
 
-   await fetchUser()
-
-   return response
-  }
+    await actions.auth.fetchUser()
+}
