@@ -19,13 +19,13 @@ const submitTweet = () => {
 </script>
 
 <template>
-  <form @submit.prevent="submitTweet" class="w-full flex px-4 py-3 border-b border-neutral-700 bg-black">
+  <form @submit.prevent="submitTweet" class="w-full flex p-3 border-b border-neutral-700 bg-black">
     <!-- Avatar -->
     <div class="mr-3 flex-shrink-0">
       <img src="/avatar.png" alt="Avatar" class="w-10 h-10 rounded-full object-cover" />
       <!-- <Icon name="uil:user" style="color: white" /> -->
     </div>
-    <!-- Input e ações -->
+    
     <div class="flex-1 flex flex-col">
       <textarea
         v-model="tweet"
@@ -38,8 +38,8 @@ const submitTweet = () => {
       />
       <div class="flex items-center justify-between mt-3">
         <div class="flex gap-2 text-twitter-blue">
-            <Icon name="uil:github" style="color: white" />
-            <Icon name="uil:github" style="color: white" />
+            <Icon name="uil:image" style="color: white" />
+            <Icon name="uil:gif" style="color: white" />
             <Icon name="uil:github" style="color: white" />
             <Icon name="uil:github" style="color: white" />
         </div>
