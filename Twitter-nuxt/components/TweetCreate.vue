@@ -38,10 +38,13 @@ const submitTweet = () => {
       />
       <div class="flex items-center justify-between mt-3">
         <div class="flex gap-2 text-twitter-blue">
-            <Icon name="uil:image" style="color: white" />
-            <Icon name="uil:gif" style="color: white" />
-            <Icon name="uil:github" style="color: white" />
-            <Icon name="uil:github" style="color: white" />
+            <Icon name="ic:outline-image" style="color: white" />
+            <Icon name="ic:outline-gif-box" heigth="50"  style="color: white" />
+            <Icon name="ic:outline-format-list-bulleted" style="color: white" />
+            <Icon name="ic:outline-emoji-emotions" style="color: white" />
+            <Icon name="ic:baseline-edit-calendar" style="color: white" />
+            <Icon name="ic:baseline-lcoation-on" style="color: white" />
+            
         </div>
         <button
           type="submit"
