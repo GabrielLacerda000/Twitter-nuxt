@@ -35,7 +35,7 @@ const submitTweet = () => {
             <Icon name="ic:baseline-edit-calendar" style="color: white" />
             <Icon name="ic:baseline-lcoation-on" style="color: white" />
         </div>
-        <ButtonsBtn text="Post"/>
+        <ButtonsBtn text="Post" :disabled="!tweet.trim()"/>
       </div>
     </div>
   </form>
