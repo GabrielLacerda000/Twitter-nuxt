@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import actions from '~/actions'
+import type { CreateForm } from '~/actions/tweet/create'
 
-const tweet = ref('')
 const editing = ref(false)
 
+const form = ref<CreateForm>({ content: '' })
 
-const submitTweet = () => {
-  // Lógica para postar tweet
+const handleTweet = async () => {
+  await actions.tweet.create(form.value)
+  form.value.content = ''
 }
 </script>
 
 <template>
-  <form @submit.prevent="submitTweet" class="w-full flex p-3 border-b border-neutral-700 bg-black">
+  <form @submit.prevent="handleTweet" class="w-full flex p-3 border-b border-neutral-700 bg-black">
     <!-- Avatar -->
     <div class="mr-3 flex-shrink-0">
       <img src="/avatar.png" alt="Avatar" class="w-10 h-10 rounded-full object-cover" />
@@ -19,10 +22,11 @@ const submitTweet = () => {
     
     <div class="flex-1 flex flex-col">
       <textarea
-        v-model="tweet"
+        v-model="form.content"
         @keydown="editing = true"
         rows="2"
         cols="50"
+        required
         placeholder="What's happening?"
         class="bg-transparent text-lg text-white text-xl placeholder-neutral-500 outline-none resize-none w-full"
       />
@@ -35,7 +39,7 @@ const submitTweet = () => {
             <Icon name="ic:baseline-edit-calendar" style="color: white" />
             <Icon name="ic:baseline-lcoation-on" style="color: white" />
         </div>
-        <ButtonsBtn text="Post" :disabled="!tweet.trim()"/>
+        <ButtonsBtn text="Post" :disabled="!form.content.trim()" type="submit"/>
       </div>
     </div>
   </form>

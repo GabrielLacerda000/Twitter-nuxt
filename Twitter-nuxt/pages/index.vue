@@ -11,19 +11,12 @@ const logout = async () => {
   navigateTo('/login')
 }
 
-const form = ref<CreateForm>({
-    content: ''
-})
-
 const tweetStore = useTweetStore()
 
 const tweets = computed(() => {
   return tweetStore.tweets
 })
 
-const tweetando = async () => {
-  const res = await actions.tweet.create(form.value)
-}
 </script>
 
 <template>
