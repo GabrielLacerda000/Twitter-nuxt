@@ -1,10 +1,5 @@
 <script setup lang="ts">
-
-
-type User = {
-  name: string
-  avatar?: string
-}
+import type { User } from '~/types/User'
 
 type Tweet = {
   id: number

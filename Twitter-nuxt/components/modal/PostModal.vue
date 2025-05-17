@@ -55,13 +55,38 @@ watch(
             >
               ✕
             </button>
-            <div>
-              <p class="">{{ tweet?.content }}</p>
+            <div class="flex gap-4">
+              <!-- Avatar -->
+              <div>
+                <img
+                  :src="tweet?.user?.avatar || '/avatar.png'"
+                  alt="Avatar"
+                  class="w-16 h-16 rounded-full object-cover border border-neutral-700"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <!-- Nome, arroba e data -->
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="font-semibold text-white text-lg truncate">{{ tweet?.user?.name || 'Usuário' }}</span>
+                  <span class="text-neutral-400 text-sm">@{{ tweet?.user?.username || 'usuario' }}</span>
+                  <span class="text-xs text-neutral-500">· {{ tweet?.created_At ? new Date(tweet.created_At).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) : '' }}</span>
+                </div>
+                <!-- Conteúdo do tweet -->
+                <div class="text-white text-xl break-words mb-3">{{ tweet?.content }}</div>
+                <!-- Imagem do tweet -->
+                <div v-if="tweet?.image" class="flex justify-center my-4">
+                  <img :src="tweet.image" alt="Imagem do tweet" class="rounded-2xl max-h-96 object-contain border border-neutral-700" />
+                </div>
+                <!-- Ícones de interação (placeholders) -->
+                <div class="flex gap-12 mt-6 text-neutral-500">
+                  <button class="hover:text-twitter-blue transition"><Icon name="ic:outline-chat-bubble-outline" size="22" /></button>
+                  <button class="hover:text-green-500 transition"><Icon name="ic:outline-repeat" size="22" /></button>
+                  <button class="hover:text-pink-500 transition"><Icon name="ic:outline-favorite-border" size="22" /></button>
+                  <button class="hover:text-twitter-blue transition"><Icon name="ic:outline-bar-chart" size="22" /></button>
+                  <button class="hover:text-twitter-blue transition"><Icon name="ic:outline-share" size="22" /></button>
+                </div>
+              </div>
             </div>
-    
-            <!-- <PostContent :postId="postId" />
-            <CommentsList :postId="postId" />
-            <CommentForm :postId="postId" /> -->
           </div>
         </div>
       </Transition>

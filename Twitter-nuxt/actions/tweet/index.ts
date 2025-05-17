@@ -1,3 +1,4 @@
+import type { User } from "~/types/User";
 import { create } from "./create";
 import { fetch } from "./fetch";
 import { getTweet } from "./getTweet";
@@ -8,6 +9,8 @@ export type Tweet = {
     user_id: string
     created_At: string
     update_at: string
+    user?: User
+    image?: string
 }
 
 export type tweetCreateResponse = {
