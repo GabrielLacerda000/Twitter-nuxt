@@ -1,5 +1,6 @@
 import { create } from "./create";
 import { fetch } from "./fetch";
+import { getTweet } from "./getTweet";
 
 export type Tweet = {
     id: number
@@ -17,5 +18,6 @@ export type tweetCreateResponse = {
 
 export default {
     create,
-    fetch
+    fetch,
+    getTweet
 }

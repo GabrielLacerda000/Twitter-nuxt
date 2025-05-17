@@ -18,7 +18,6 @@ const tweetStore = useTweetStore()
 const tweets = computed(() => {
   return tweetStore.tweets
 })
-
 </script>
 
 <template>
