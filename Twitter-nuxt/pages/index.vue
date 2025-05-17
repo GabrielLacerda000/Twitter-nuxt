@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import actions from '~/actions'
-import type { CreateForm } from '~/actions/tweet/create'
 
 definePageMeta({
   middleware: ['auth']
 })
+
+await actions.tweet.fetch()
 
 const logout = async () => {
   await actions.auth.logout()

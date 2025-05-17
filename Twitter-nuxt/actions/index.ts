@@ -3,5 +3,5 @@ import tweet from "./tweet";
 
 export default  {
     auth,
-    tweet
+    tweet,
 }
