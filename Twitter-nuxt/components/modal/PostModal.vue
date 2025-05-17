@@ -36,10 +36,10 @@ watch(
     <teleport to="body">
       <div
         v-if="isOpen"
-        class="fixed inset-0 z-50 bg-black bg-opacity-60 flex justify-center items-center p-4 text-black"
+        class="fixed inset-0 z-50 bg-black bg-opacity-60 flex justify-center items-center p-4 text-white"
       >
         <div
-          class="bg-white w-full max-w-5xl h-full md:h-[90vh] overflow-y-auto rounded-xl p-6 relative"
+          class="bg-black w-full max-w-5xl h-full md:h-[90vh] overflow-y-auto rounded-xl p-6 relative"
         >
           <button
             @click="close"
