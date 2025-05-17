@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import MenuBtn from '@/components/buttons/MenuBtn.vue'
+
 const menuItems = [
   { label: 'Página Inicial', icon: 'ic:baseline-home', active: true },
   { label: 'Explorar', icon: 'ic:baseline-search' },
@@ -18,19 +20,12 @@ const menuItems = [
 <template>
   <nav class="flex flex-col h-screen w-64 bg-black text-white py-6 px-2 fixed left-0 top-0 border-r border-neutral-800">
     <div class="mb-8 flex items-center px-4">
-      <Icon name="ic:baseline-home" class="text-twitter-blue text-3xl mr-2" />
+      <Icon name="ic:baseline-home" class="text-[#1da1f2]text-3xl mr-2" />
       <span class="font-bold text-xl">Página Inicial</span>
     </div>
     <ul class="flex-1 flex flex-col gap-2">
       <li v-for="(item, i) in menuItems" :key="i">
-        <button
-          class="flex items-center w-full gap-4 px-4 py-3 rounded-lg transition-colors duration-200 hover:bg-neutral-900 focus:outline-none"
-          :class="item.active ? 'bg-neutral-900 font-bold text-twitter-blue' : ''"
-          tabindex="0"
-        >
-          <Icon :name="item.icon" class="text-2xl" />
-          <span class="truncate">{{ item.label }}</span>
-        </button>
+        <MenuBtn :icon="item.icon" :label="item.label" :active="item.active ?? false" />
       </li>
     </ul>
   </nav>
