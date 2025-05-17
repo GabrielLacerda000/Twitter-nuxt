@@ -10,7 +10,8 @@ export async function fetch(): Promise<BaseResponse<Tweet[]>> {
     }
 
     if (tweets.value && tweets.value.status === 'success') {
-        tweets.value.data.forEach(tweet => useTweetStore().addTweet(tweet))
+       const tweetStore = useTweetStore()
+       tweetStore.loadTweets(tweets.value.data)
     }
     return tweets.value as BaseResponse<Tweet[]>
 }
