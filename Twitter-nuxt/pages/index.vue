@@ -26,11 +26,7 @@ const tweets = computed(() => {
       <TweetCreate />
     </div>
     <div class="w-full max-w-2xl px-4">
-      <ul>
-        <li v-for="tweet in tweets" :key="tweet.id">
-          {{ tweet.content }}
-        </li>
-      </ul>
+      <Tweets :tweets="tweets" />
     </div>
     <button @click="logout" class="p-2 bg-cyan-500 rounded-md hover:bg-cyan-300 hover:text-black transition-all duration-300 mt-4">Logout</button>
   </div>
