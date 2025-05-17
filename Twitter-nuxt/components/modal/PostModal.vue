@@ -34,28 +34,37 @@ watch(
 
 <template>
     <teleport to="body">
-      <div
-        v-if="isOpen"
-        class="fixed inset-0 z-50 bg-black bg-opacity-60 flex justify-center items-center p-4 text-white"
+      <Transition
+        enter-active-class="transition duration-200 ease-out"
+        enter-from-class="opacity-0 scale-95"
+        enter-to-class="opacity-100 scale-100"
+        leave-active-class="transition duration-150 ease-in"
+        leave-from-class="opacity-100 scale-100"
+        leave-to-class="opacity-0 scale-95"
       >
         <div
-          class="bg-black w-full max-w-5xl h-full md:h-[90vh] overflow-y-auto rounded-xl p-6 relative"
+          v-if="isOpen"
+          class="fixed inset-0 z-50 bg-black bg-opacity-60 flex justify-center items-center p-4 text-white"
         >
-          <button
-            @click="close"
-            class="absolute top-4 right-4 text-gray-500 hover:text-black"
+          <div
+            class="bg-black w-full max-w-5xl h-full md:h-[90vh] overflow-y-auto rounded-xl p-6 relative"
           >
-            ✕
-          </button>
-          <div>
-            <p class="">{{ tweet?.content }}</p>
+            <button
+              @click="close"
+              class="absolute top-4 right-4 text-gray-500 hover:text-black"
+            >
+              ✕
+            </button>
+            <div>
+              <p class="">{{ tweet?.content }}</p>
+            </div>
+    
+            <!-- <PostContent :postId="postId" />
+            <CommentsList :postId="postId" />
+            <CommentForm :postId="postId" /> -->
           </div>
-  
-          <!-- <PostContent :postId="postId" />
-          <CommentsList :postId="postId" />
-          <CommentForm :postId="postId" /> -->
         </div>
-      </div>
+      </Transition>
     </teleport>
 </template>
   
