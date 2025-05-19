@@ -79,11 +79,21 @@ watch(
                 </div>
                 <!-- Ícones de interação (placeholders) -->
                 <div class="flex gap-12 mt-6 text-neutral-500">
-                  <button class="hover:text-twitter-blue transition"><Icon name="ic:outline-chat-bubble-outline" size="22" /></button>
-                  <button class="hover:text-green-500 transition"><Icon name="ic:outline-repeat" size="22" /></button>
-                  <button class="hover:text-pink-500 transition"><Icon name="ic:outline-favorite-border" size="22" /></button>
-                  <button class="hover:text-twitter-blue transition"><Icon name="ic:outline-bar-chart" size="22" /></button>
-                  <button class="hover:text-twitter-blue transition"><Icon name="ic:outline-share" size="22" /></button>
+                  <button class="hover:text-twitter-blue transition">
+                    <Icon name="ic:outline-chat-bubble-outline" size="22" />
+                  </button>
+                  <button class="hover:text-green-500 transition">
+                    <Icon name="ic:outline-repeat" size="22" />
+                  </button>
+                  <button class="hover:text-pink-500 transition">
+                    <Icon name="ic:outline-favorite-border" size="22" />
+                  </button>
+                  <button class="hover:text-twitter-blue transition">
+                    <Icon name="ic:outline-bar-chart" size="22" />
+                  </button>
+                  <button class="hover:text-twitter-blue transition">
+                    <Icon name="ic:outline-share" size="22" />
+                  </button>
                 </div>
               </div>
             </div>
