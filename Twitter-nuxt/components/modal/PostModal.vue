@@ -51,7 +51,7 @@ watch(
           >
             <button
               @click="close"
-              class="absolute top-4 right-4 text-gray-500 hover:text-black"
+              class="absolute top-4 right-4 text-gray-500 bg-gray-400 rounded-full w-10 h-10 hover:text-black hover:bg-gray-500 transition duration-150 ease-in-out"
             >
               ✕
             </button>

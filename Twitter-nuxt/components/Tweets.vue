@@ -25,7 +25,7 @@ const postModal = usePostModalStore()
 
 <template>
   <ul>
-    <li v-for="tweet in tweets" :key="tweet.id" class="border-b border-neutral-700 p-4 flex gap-3 bg-black hover:bg-neutral-900 transition-colors" @click="postModal.open(tweet.id)" style="cursor:pointer;">
+    <li v-for="tweet in tweets" :key="tweet.id" class="border-b border-neutral-700 p-4 flex gap-3 bg-black hover:bg-neutral-900 transition-colors cursor-pointer" @click="postModal.open(tweet.id)">
       <!-- Avatar -->
       <div>
         <img

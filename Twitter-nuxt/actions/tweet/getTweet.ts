@@ -12,7 +12,6 @@ export async function getTweet(id: number): Promise<BaseResponse<Tweet>> {
     if (tweet.value && tweet.value.status === 'success') {
        const tweetStore = useTweetStore()
        tweetStore.setTweet(tweet.value.data) 
-       console.log(tweet.value.data)
     }
 
     return tweet.value as BaseResponse<Tweet>
