@@ -19,9 +19,9 @@ const defaultAvatar = '/avatar.png'
 </script>
 
 <template>
-  <div class="flex items-start flex-1 ml-64">
-      <div class="w-full flex flex-col gap-3">
-        <div class="flex flex-row">
+  <div class="flex justify-center mx-auto">
+      <div class="w-full max-w-2xl flex flex-col gap-3 px-4">
+        <div class="flex flex-row w-full items-center justify-center gap-3">
           <Icon class="w-6 h-6 text-gray-400" name="ic:twotone-arrow-back" />
           <NuxtLink>{{ userStore.user?.name }}</NuxtLink>
         </div>

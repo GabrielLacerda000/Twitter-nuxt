@@ -23,7 +23,6 @@ const tweets = computed(() => tweetStore.tweets)
       </div>
       <div class="w-full max-w-2xl px-4">
         <Tweets :tweets="tweets" />
-        <slot name="bottom-content"/>
       </div>
     </div>
 </template>

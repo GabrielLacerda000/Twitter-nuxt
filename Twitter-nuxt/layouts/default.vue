@@ -4,7 +4,7 @@
 
 <template>
   <div class="bg-black text-white font-sans">
-    <div class="flex flex-row min-h-screen w-full bg-black">
+    <div class="flex min-h-screen w-full bg-black">
       <Sidebar />
       <slot />
     </div>
