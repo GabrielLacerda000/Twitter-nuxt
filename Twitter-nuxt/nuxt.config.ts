@@ -8,6 +8,7 @@ export default defineNuxtConfig({
       bodyAttrs: {
         class: 'bg-black text-white font-semibold font-mono'
       }
-    }
+    },
+    pageTransition: { name: 'page', mode: 'out-in' }
   }
 })

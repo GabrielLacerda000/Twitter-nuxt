@@ -4,7 +4,10 @@
 
 <template>
   <div class="bg-black text-white font-sans">
-    <slot />
+    <div class="flex flex-row min-h-screen w-full bg-black">
+      <Sidebar />
+      <slot />
+    </div>
     <modalPostModal />
   </div>
 </template>

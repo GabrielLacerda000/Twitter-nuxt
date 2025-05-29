@@ -12,7 +12,7 @@ const menuItems = [
   { label: 'Comunidades', icon: 'ic:outline-people', active: false, route: '/'  },
   { label: 'Premium', icon: 'ic:baseline-star', active: false, route: '/'},
   { label: 'Organizações Ve...', icon: 'ic:baseline-flash-on', active: false, route: '/'},
-  { label: 'Perfil', icon: 'ic:outline-person', active: false, route: '/'},
+  { label: 'Perfil', icon: 'ic:outline-person', active: false, route: '/profile'},
   { label: 'Mais', icon: 'ic:outline-more-horiz' , active: false, route: '/'}
 ]
 </script>
